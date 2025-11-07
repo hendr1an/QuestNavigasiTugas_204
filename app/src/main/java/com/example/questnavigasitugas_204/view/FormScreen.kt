@@ -55,7 +55,7 @@ fun FormScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             // NAMA LENGKAP
-            Text(stringResource(id = R.string.nama_lengkap), style = MaterialTheme.typography.bodySmall)
+            Text(stringResource(id = R.string.nama_lengkap).uppercase(), style = MaterialTheme.typography.bodySmall)
             OutlinedTextField(
                 value = uiState.nama,
                 onValueChange = { dataViewModel.setNama(it) },
@@ -138,5 +138,8 @@ fun FormScreen(
 @Preview(showBackground = true)
 @Composable
 fun FormScreenPreview() {
-    FormScreen(onSubmitClicked = {})
+
+    com.example.questnavigasitugas_204.ui.theme.QuestNavigasiTugas_204Theme {
+        FormScreen(onSubmitClicked = {})
+    }
 }
