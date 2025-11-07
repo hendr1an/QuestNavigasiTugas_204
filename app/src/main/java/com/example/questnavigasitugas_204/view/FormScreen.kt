@@ -126,11 +126,9 @@ fun FormScreen(
             // TOMBOL SUBMIT
             Button(
                 onClick = onSubmitClicked,
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF957DAD) // Warna ungu tua
+                modifier = Modifier.fillMaxWidth()
                 )
-            ) {
+            {
                 Text(stringResource(id = R.string.submit))
             }
         }

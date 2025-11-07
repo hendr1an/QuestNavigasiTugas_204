@@ -64,7 +64,7 @@ fun HomeScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 32.dp)
             )
-        ) {
+        {
             Text(stringResource(id = R.string.submit))
         }
     }
@@ -73,6 +73,8 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(onSubmitClicked = {})
+    // Tambahkan pembungkus Tema ini
+    com.example.questnavigasitugas_204.ui.theme.QuestNavigasiTugas_204Theme {
+        HomeScreen(onSubmitClicked = {})
+    }
 }
-

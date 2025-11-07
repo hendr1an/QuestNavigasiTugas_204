@@ -8,19 +8,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.questnavigasitugas_204.ui.theme.questnavigasitugas_204Theme // Sesuaikan nama tema Anda
+import com.example.questnavigasitugas_204.ui.theme.QuestNavigasiTugas_204Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            questnavigasitugas_204Theme { // Menggunakan tema aplikasi Anda
+            QuestNavigasiTugas_204Theme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavApp() // Panggil komponen NavApp kita
+                    NavApp()
                 }
             }
         }

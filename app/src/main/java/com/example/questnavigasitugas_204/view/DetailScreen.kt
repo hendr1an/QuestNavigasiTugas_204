@@ -37,11 +37,11 @@ fun DetailScreen(
                 title = {
                     Text(
                         text = stringResource(id = R.string.list_daftar_peserta),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onPrimary // <- Teks di atas primary
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF957DAD) // Warna ungu tua
+                    containerColor = MaterialTheme.colorScheme.primary
                 )
             )
         },
@@ -64,18 +64,17 @@ fun DetailScreen(
 
             Button(
                 onClick = onBerandaClicked,
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF957DAD) // Warna ungu tua
+                modifier = Modifier.fillMaxWidth()
                 )
-            ) {
+             {
                 Text(stringResource(id = R.string.beranda))
             }
             Button(
                 onClick = onFormulirClicked,
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFE0BBE4) // Warna ungu lebih terang
+                    containerColor = MaterialTheme.colorScheme.secondary, // <- Warna secondary
+                    contentColor = MaterialTheme.colorScheme.onSecondary // Warna ungu lebih terang
                 )
             ) {
                 Text(stringResource(id = R.string.formulir_pendaftaran))
