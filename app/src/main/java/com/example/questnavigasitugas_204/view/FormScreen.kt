@@ -65,7 +65,7 @@ fun FormScreen(
             Spacer(modifier = Modifier.height(8.dp)) // Spasi tambahan
 
             // JENIS KELAMIN
-            Text(stringResource(id = R.string.jenis_kelamin), style = MaterialTheme.typography.bodySmall)
+            Text(stringResource(id = R.string.jenis_kelamin).uppercase(), style = MaterialTheme.typography.bodySmall)
             Column {
                 jenisKelaminOptions.forEach { option ->
                     Row(
@@ -89,7 +89,7 @@ fun FormScreen(
             Spacer(modifier = Modifier.height(8.dp)) // Spasi tambahan
 
             // STATUS PERKAWINAN
-            Text(stringResource(id = R.string.status_perkawinan), style = MaterialTheme.typography.bodySmall)
+            Text(stringResource(id = R.string.status_perkawinan).uppercase(), style = MaterialTheme.typography.bodySmall)
             Column {
                 statusPerkawinanOptions.forEach { option ->
                     Row(
@@ -113,7 +113,7 @@ fun FormScreen(
             Spacer(modifier = Modifier.height(8.dp)) // Spasi tambahan
 
             // ALAMAT
-            Text(stringResource(id = R.string.alamat), style = MaterialTheme.typography.bodySmall)
+            Text(stringResource(id = R.string.alamat).uppercase(), style = MaterialTheme.typography.bodySmall)
             OutlinedTextField(
                 value = uiState.alamat,
                 onValueChange = { dataViewModel.setAlamat(it) },
