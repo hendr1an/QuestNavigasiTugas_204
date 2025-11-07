@@ -37,11 +37,11 @@ fun FormScreen(
                 title = {
                     Text(
                         text = stringResource(id = R.string.formulir_pendaftaran),
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onPrimary // <- Teks di atas primary
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF957DAD) // Warna ungu tua
+                    containerColor = MaterialTheme.colorScheme.primary
                 )
             )
         },

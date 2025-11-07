@@ -34,7 +34,7 @@ fun HomeScreen(
             text = stringResource(id = R.string.selamat_datang),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF957DAD) // Warna ungu tua
+            color = MaterialTheme.colorScheme.primary // <- Gunakan warna tema
         )
 
         // Pastikan Anda menaruh file gambar logo di res/drawable
@@ -62,9 +62,7 @@ fun HomeScreen(
             onClick = onSubmitClicked,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF957DAD) // Warna ungu tua
+                .padding(horizontal = 32.dp)
             )
         ) {
             Text(stringResource(id = R.string.submit))
