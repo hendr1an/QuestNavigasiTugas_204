@@ -17,8 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.navigasiuiapp.DataViewModel
-import com.example.navigasiuiapp.R
+import com.example.questnavigasitugas_204.DataViewModel
+import com.example.questnavigasitugas_204.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
