@@ -1,4 +1,4 @@
-package com.example.questnavigasitugas_204.ui.theme
+package com.example.questnavigasitugas_204.ui.theme // <- Ganti dengan package name Anda
 
 import android.app.Activity
 import android.os.Build
@@ -9,34 +9,36 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
+// Ini adalah skema warna untuk Dark Mode (bisa diabaikan jika Anda tidak menggunakannya)
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )
 
+// --- INI BAGIAN PENTING ---
+// Skema warna untuk Light Mode yang kita sesuaikan
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = AppPurpleDark,      // Warna utama (tombol, appbar)
+    onPrimary = AppWhite,         // Teks di atas warna utama
+    secondary = AppPurpleLight,   // Warna sekunder (tombol kedua)
+    onSecondary = Color.Black,    // Teks di atas warna sekunder
+    background = AppBackground,   // Background seluruh aplikasi
+    onBackground = Color.Black,   // Teks di atas background
+    surface = Color.White,        // Warna untuk Card
+    onSurface = Color.Black       // Teks di atas Card
 )
 
 @Composable
-fun QuestNavigasiTugas_204Theme(
+fun QuestNavigasiTugas_204Theme( // <- Ganti nama Tema ini jika nama proyek Anda beda
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
@@ -45,14 +47,22 @@ fun QuestNavigasiTugas_204Theme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
+        // --- Gunakan skema warna terang kita ---
         else -> LightColorScheme
+    }
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = colorScheme.primary.toArgb() // Set warna status bar
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+        }
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = Typography, // Ini mengambil dari file Typography.kt
         content = content
     )
 }
